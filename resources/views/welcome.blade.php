@@ -11,11 +11,8 @@
                             Selamat Datang di Sistem Penerimaan Siswa Baru <br>
                         </h3>
                         <p class="text-center">
-                            <img src="{{ asset('smkpgri.png') }}" width="15%">
                         </p>
                         <p class="text-center">
-                            Aplikasi Penerimaan Siswa Berdasarkan Pemilihan Jurusan dan Kompotensi Keahlian Pada <br> <br><br>
-                            <a href="{{ url('/pengumuman') }}" class="btn btn-success">Pengumuman</a>
                         </p>
                     </div>
                 </div>
