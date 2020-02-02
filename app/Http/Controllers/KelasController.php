@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Kelas;
 use Illuminate\Http\Request;
-use App\AppModel\Jurusan;
-use App\Http\Requests;
-use App\Http\Requests\Jurusan\StoreRequest;
-use App\Http\Requests\Jurusan\UpdateRequest;
 
-class JurusanController extends Controller
+class KelasController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,8 +23,8 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusans = Jurusan::all();
-        return view('adminpanel.jurusan.index', compact('jurusans'));
+        $kelas = Kelas::all();
+        return view('adminpanel.kelas.index', compact('kelas'));
     }
 
     /**
@@ -37,7 +34,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('adminpanel.jurusan.create');
+        return view('adminpanel.kelas.create');
     }
 
     /**
@@ -46,13 +43,12 @@ class JurusanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRequest $request)
+    public function store(Request $request)
     {
-        $jurusans = new Jurusan();
-        $jurusans->nama =  $request->nama;
-        $jurusans->nilai_lulus = $request->nilai_lulus;
-        $jurusans->save();
-        return redirect()->route('jurusan.index')->with('alert-success', 'Berhasil Menambah Data');
+        $kelas = new Kelas();
+        $kelas->nama =  $request->nama;
+        $kelas->save();
+        return redirect()->route('kelas.index')->with('alert-success', 'Berhasil Menambah Data');
     }
 
     /**
@@ -74,8 +70,8 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $jurusans = Jurusan::findOrFail($id);
-        return view('adminpanel.jurusan.edit', compact('jurusans'));
+        $kelas = Kelas::findOrFail($id);
+        return view('adminpanel.kelas.edit', compact('kelas'));
     }
 
     /**
@@ -85,13 +81,12 @@ class JurusanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $jurusans = Jurusan::findOrFail($id);
-        $jurusans->nama =  $request->nama;
-        $jurusans->nilai_lulus = $request->nilai_lulus;
-        $jurusans->save();
-        return redirect()->route('jurusan.index')->with('alert-success', 'Berhasil Mengubah Data');
+        $kelas = Kelas::findOrFail($id);
+        $kelas->nama =  $request->nama;
+        $kelas->save();
+        return redirect()->route('kelas.index')->with('alert-success', 'Berhasil Mengubah Data');
     }
 
     /**
@@ -102,9 +97,8 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        $jurusans = Jurusan::findOrFail($id);
-        $jurusans->hasils()->delete();
-        $jurusans->delete();
-        return redirect()->route('jurusan.index')->with('alert-success', 'Jurusan Berhasil Dihapus');
+        $kelas = Kelas::findOrFail($id);
+        $kelas->delete();
+        return redirect()->route('kelas.index')->with('alert-success', 'Kelas Berhasil Dihapus');
     }
 }

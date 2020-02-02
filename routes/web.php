@@ -26,8 +26,10 @@ Route::auth();
 
 Route::get('logout', 'Auth\LoginController@logout');
 Route::get('/pengumuman', 'HomeController@index');
-Route::resource('pendaftar', 'PendaftarController');
-Route::resource('jurusan', 'JurusanController');
+
+Route::resource('siswa', 'SiswaController');
+Route::resource('kelas', 'KelasController');
+
 Route::resource('penguji', 'PengujiController');
 Route::resource('kepsek', 'KepsekController');
 Route::resource('hasil', 'HasilController');

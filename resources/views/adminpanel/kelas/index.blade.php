@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Daftar Pendaftar</div>
+                <div class="panel-heading">Daftar kelas</div>
 
                 <div class="panel-body">
                     @if(Session::has('alert-success'))
@@ -18,31 +18,21 @@
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <td>No Pendaftaran</td>
+                                <td>Kode kelas</td>
                                 <td>Nama</td>
-                                <td>Tempat Lahir</td>
-                                <td>Tanggal Lahir</td>
-                                <td>Jenis Kelamin</td>
-                                <td>Agama</td>
-                                <td>No Telepon</td>
                                 <td>Action</td>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($pendaftars as $pendaftar)
+                            @foreach($kelas as $item)
                             <tr>
-                                <td>{{ $pendaftar->id }}</td>
-                                <td>{{ $pendaftar->nama }}</td>
-                                <td>{{ $pendaftar->tempat_lahir }}</td>
-                                <td>{{ $pendaftar->tanggal_lahir }}</td>
-                                <td>{{ $pendaftar->jenis_kelamin }}</td>
-                                <td>{{ $pendaftar->agama }}</td>
-                                <td>{{ $pendaftar->phone }}</td>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->nama }}</td>
                                 <td>
-                                    <form method="POST" action="{{ route('pendaftar.destroy', $pendaftar->id) }}" accept-charset="UTF-8">
+                                    <form method="POST" action="{{ route('kelas.destroy', $item->id) }}" accept-charset="UTF-8">
                                     <input name="_method" type="hidden" value="DELETE">
                                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                                    <a class="btn btn-xs btn-info" href="{{ route('pendaftar.edit', $pendaftar->id) }}">Ubah</a> | 
+                                    <a class="btn btn-xs btn-info" href="{{ route('kelas.edit', $item->id) }}">Ubah</a> | 
                                     <input class="btn btn-xs btn-danger" onclick="return confirm('Anda yakin akan menghapus data ?');" type="submit" value="Hapus" />
                                     </form>
                                 </td>
@@ -50,7 +40,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a href="{{ route('pendaftar.create') }}" class="btn btn-info">Tambah</a>
+                    <a href="{{ route('kelas.create') }}" class="btn btn-info">Tambah</a>
                 </div>
             </div>
         </div>

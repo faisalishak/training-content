@@ -59,8 +59,8 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                     @else
-                        <li><a href="{{ route('pendaftar.index') }}">Pendaftar</a></li>
-                        <li><a href="{{ route('jurusan.index') }}">Jurusan</a></li>
+                        <li><a href="{{ route('siswa.index') }}">Siswa</a></li>
+                        <li><a href="{{ route('kelas.index') }}">Kelas</a></li>
                         <li><a href="/logout">Logout</a></li>
                     @endif
                 </ul>
