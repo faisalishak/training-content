@@ -17,8 +17,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $hasils = Hasil::all();
-        $kepseks = Kepsek::all()->first();
-        return view('home', compact('hasils', 'kepseks'));
+        return view('home');
     }
 }

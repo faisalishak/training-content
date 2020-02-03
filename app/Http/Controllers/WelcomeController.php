@@ -10,7 +10,6 @@ class WelcomeController extends Controller
 {
     public function index()
     {
-    	$siswa = Siswa::all();
-    	return view('welcome', compact('siswa'));
+    	return view('welcome');
     }
 }
